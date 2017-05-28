@@ -25,10 +25,10 @@ export default class Shop extends Component {
 
         this.state={
             initialPosition:{
-            latitude:0,
-            longitude:0,
-            latitudeDelta:LATITUDE_DELTA,
-            longitudeDelta:LONGITUDE_DELTA
+                latitude:37.78825,
+                longitude:-122.4324,
+                latitudeDelta:0.0922,
+                longitudeDelta:0.042,
 
             },
             makerPosition:{
@@ -49,8 +49,8 @@ export default class Shop extends Component {
         var initialRegion = {
             latitude:lat,
             longitude:long,
-            latitudeDelta:LATITUDE_DELTA,
-            longitudeDelta:LONGITUDE_DELTA
+            longitudeDelta:LONGITUDE_DELTA,
+            latitudeDelta:LATITUDE_DELTA
         }
         this.setState({initialPosition: initialRegion})
         this.setState({makerPosition: initialRegion})
@@ -65,9 +65,8 @@ export default class Shop extends Component {
               var lastRegion = {
             latitude:lat,
             longitude:long,
-            latitudeDelta:LATITUDE_DELTA,
-            longitudeDelta:LONGITUDE_DELTA
-           
+            longitudeDelta:LONGITUDE_DELTA,
+            latitudeDelta:LATITUDE_DELTA
             
         }
         this.setState({initialPosition:lastRegion})
@@ -96,7 +95,7 @@ render() {
         showsUserLocation={true}
           style={styles.map}
          region ={ this.state.initialPosition }>
-          <MapView.Marker region={this.state.markerPosition}>
+          <MapView.Marker coordinate={this.state.markerPosition}>
               <View style={styles.radius}>
                   <View style={styles.marker}>
                       </View>
