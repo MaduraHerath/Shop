@@ -3,32 +3,46 @@
  * https://github.com/facebook/react-native
  * @flow
  */
-
+import { Container, Header, Item, Input, Icon, Button,Left,Right,Content,Footer,FooterTab,Body,Title,Text } from 'native-base';
+import MapView from 'react-native-maps';
 import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
-  Text,
   View
 } from 'react-native';
 
 export default class Shop extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+
+
+
+
+render() {
+  return ( 
+   <Container>
+      <Header searchBar rounded>
+                    <Item>
+                        <Icon name="ios-search" />
+                        <Input placeholder="Search" />
+                        <Icon name="ios-people" />
+                    </Item>
+                    <Button transparent>
+                        <Text>Search</Text>
+                    </Button>
+                </Header>
+ <View style ={styles.container}>
+        <MapView
+          style={styles.map}
+          initialRegion={{    latitude: 37.78825,
+            longitude: -122.4324,
+            latitudeDelta: 0.015,
+            longitudeDelta: 0.0121,}}>
+        </MapView>
       </View>
-    );
-  }
+ </Container>
+
+  );
+}
 }
 
 const styles = StyleSheet.create({
@@ -36,18 +50,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#2c3e50',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+
+  map:
+  {
+top:0,
+left:0,
+right:0,
+bottom: 0,
+position: 'absolute'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+
 });
 
 AppRegistry.registerComponent('Shop', () => Shop);
