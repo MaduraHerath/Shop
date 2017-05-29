@@ -26,7 +26,7 @@
             },
             markerPosition: {
                 latitude: 0,
-                longtitude: 0
+                longitude: 0,
             }
         }
     }
@@ -86,19 +86,25 @@ watchID: ?number = null
                 </Header>
                 <View style={styles.container}>
                     <MapView
-                        showsUserLocation={true}
+                        showsUserLocation={false}
                         style={styles.map}
                         region={this.state.initialPosition}>
-                        {/*<MapView.Marker coordinate={this.state.markerPosition}>
+                        <MapView.Marker coordinate={this.state.markerPosition}>
                             <View style={styles.radius}>
                                 <View style={styles.marker}>
                                 </View>
                             </View>
-                        </MapView.Marker>*/}
+                        </MapView.Marker>
                     </MapView>
                 </View>
                 <View>
-
+                 <Footer>
+                    <FooterTab>
+                        <Button full>
+                            <Text>Quick Guide</Text>
+                        </Button>
+                    </FooterTab>
+                </Footer>
                 </View>
             </Container>
 
@@ -125,7 +131,8 @@ watchID: ?number = null
             overflow: 'hidden',
             backgroundColor: 'black',
             borderColor: 'white',
-            borderRadius: 20 / 2
+            borderRadius: 20 / 2,
+            
         },
         container: {
             flex: 1,
